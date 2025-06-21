@@ -33,7 +33,7 @@ const Hero: React.FC = () => {
 
         {/* Contact Button */}
         <a
-          href="/files/giorgi_cv.pdf"
+          href="/files/Giorgi zautashvili.pdf"
           download
           className="flex  items-center border justify-center gap-4 rounded-[10px] border-[#727fdeb4] bg-[#2200493d] px-[20px] py-[15px] text-white shadow-[0_0_5px_#727fde86] transition duration-300 hover:shadow-[0_0_15px_#727fde86]"
         >
