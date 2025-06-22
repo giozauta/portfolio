@@ -11,6 +11,7 @@ import React from "react";
 import { useForm, Controller } from "react-hook-form";
 import emailjs from "emailjs-com";
 import { Toaster, toast } from 'sonner';
+import AutoBlurWrapper from "@/components/auto-blur-wrapper";
 
 
 type FormValues = {
@@ -65,7 +66,8 @@ const Contact: React.FC = () => {
       </div>
 
       <div className=" flex flex-col sm:flex-row w-full justify-around items-center">
-        <div className="social-box autoBlur flex flex-col gap-[25px] ">
+
+        <AutoBlurWrapper className="social-box  flex flex-col gap-[25px] ">
           <a
             href="#"
             className="text-gray-300 text-[20px] whitespace-nowrap flex items-center"
@@ -112,9 +114,9 @@ const Contact: React.FC = () => {
 
             </a>
           </div>
-        </div>
+        </AutoBlurWrapper>
 
-        <div className="contact-box autoBlur ">
+        <AutoBlurWrapper className="contact-box  ">
           <p className="max-w-[400px] mt-[30px] mb-[5px]">
             If you're looking to build a new website, bring a unique project to
             life, or improve your existing platform — I'm here to help.
@@ -173,7 +175,8 @@ const Contact: React.FC = () => {
               Send Message
             </button>
           </form>
-        </div>
+        </AutoBlurWrapper>
+
       </div>
     </div>
   );

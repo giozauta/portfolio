@@ -3,6 +3,7 @@ import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { cardData } from "./cardData";
 import "./my-projects-styles.css";
+import AutoBlurWrapper from "@/components/auto-blur-wrapper";
 
 const MyProjects: React.FC = () => {
   const videoRefs = useRef<HTMLVideoElement[]>([]);
@@ -38,31 +39,34 @@ const MyProjects: React.FC = () => {
           className="project-card flex flex-col sm:flex-row items-center justify-center w-full gap-[30px] sm:gap-[10%] "
         >
           {/* Video Box */}
-          <div className="project-vidbox autoBlur  rounded-[20px] shadow-[0_0_10px_lightgray] hover:shadow-[0_0_20px_lightgray] transition duration-500 relative w-full sm:w-[500px] h-[310px] sm:h-[300px] flex justify-center items-center cursor-pointer mix-blend-exclusion">
-            <video
-              ref={(el) => {
-                videoRefs.current[index] = el!;
-              }}
-              poster={card.img}
-              preload="auto"
-              loop
-              muted
-              playsInline
-              onMouseEnter={() => handleVideoHover(index, "enter")}
-              onMouseLeave={() => handleVideoHover(index, "leave")}
-              className="object-cover w-full h-full rounded-[20px]"
-            >
-              <source src={card.video} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+          <AutoBlurWrapper>
 
-            <div
-              ref={(el) => {
-                hoverSignRefs.current[index] = el!;
-              }}
-              className="hover-sign flex justify-center items-center w-[30%] h-[100px]"
-            ></div>
-          </div>
+            <div className="project-vidbox    rounded-[20px] shadow-[0_0_10px_lightgray] hover:shadow-[0_0_20px_lightgray] transition duration-500 relative w-full sm:w-[500px] h-[310px] sm:h-[300px] flex justify-center items-center cursor-pointer mix-blend-exclusion">
+              <video
+                ref={(el) => {
+                  videoRefs.current[index] = el!;
+                }}
+                poster={card.img}
+                preload="auto"
+                loop
+                muted
+                playsInline
+                onMouseEnter={() => handleVideoHover(index, "enter")}
+                onMouseLeave={() => handleVideoHover(index, "leave")}
+                className="object-cover  h-full rounded-[20px] "
+              >
+                <source src={card.video} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+
+              <div
+                ref={(el) => {
+                  hoverSignRefs.current[index] = el!;
+                }}
+                className="hover-sign flex justify-center items-center w-[30%] h-[100px]"
+              ></div>
+            </div>
+          </AutoBlurWrapper>
 
           {/* Info Box */}
           <div className="project-info fadeInRight flex flex-col items-start justify-center w-full sm:w-[50%] sm:pl-[10%]">
