@@ -59,11 +59,11 @@ const Contact: React.FC = () => {
     <div className="contact-section flex flex-col items-center w-full px-4 sm:px-8 max-w-7xl mx-auto pt-40 sm:pt-40 pb-10 md:pb-40  gap-15  ">
       <Toaster />
 
-      <div className="">
-        <h1 className="section-title autoDisplay text-3xl sm:text-4xl font-bold  text-center">
-          Contact Me 🤙
-        </h1>
-      </div>
+
+      <h1 className="section-title autoDisplay  text-3xl sm:text-4xl font-bold  text-center">
+        Contact Me 🤙
+      </h1>
+
 
       <div className=" flex flex-col sm:flex-row w-full justify-around items-center">
 

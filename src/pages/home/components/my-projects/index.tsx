@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { cardData } from "./cardData";
@@ -8,6 +8,7 @@ import AutoBlurWrapper from "@/components/auto-blur-wrapper";
 const MyProjects: React.FC = () => {
   const videoRefs = useRef<HTMLVideoElement[]>([]);
   const hoverSignRefs = useRef<HTMLDivElement[]>([]);
+  const [enableAnimation, setEnableAnimation] = useState(true);
 
   const handleVideoHover = (index: number, state: "enter" | "leave") => {
     const video = videoRefs.current[index];
@@ -24,7 +25,19 @@ const MyProjects: React.FC = () => {
     }
   };
 
+  function isSafari() {
+    return /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+  }
 
+  function isFirefox() {
+    return navigator.userAgent.toLowerCase().includes("firefox");
+  }
+
+  useEffect(() => {
+    if (isSafari() || isFirefox()) {
+      setEnableAnimation(false);
+    }
+  }, []);
 
   return (
     <section id="Projects" className="my-projects relative flex flex-col mx-auto items-center w-full sm:w-[80%] mt-40 lg:mt-60 gap-[60px] px-4 sm:px-0">
@@ -69,8 +82,10 @@ const MyProjects: React.FC = () => {
           </AutoBlurWrapper>
 
           {/* Info Box */}
-          <div className="project-info fadeInRight flex flex-col items-start justify-center w-full sm:w-[50%] sm:pl-[10%]">
-            <h1 className="text-[20px] sm:text-[25px] font-bold w-full sm:w-[90%] mb-[10px] max-w-[450px] text-nowrap">
+          <div
+            className={`project-info flex flex-col items-start justify-center w-full sm:w-[50%] sm:pl-[10%] ${enableAnimation ? "fadeInRight" : ""
+              }`}
+          >            <h1 className="text-[20px] sm:text-[25px] font-bold w-full sm:w-[90%] mb-[10px] max-w-[450px] text-nowrap">
               {card.titleSection1}
               <span className="gradient"> {card.titleSection2} </span>
               {card.titleSection3}
