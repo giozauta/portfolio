@@ -15,7 +15,7 @@ const Info: React.FC = () => {
 
   }
   return (
-    <section id="About" className="info-section flex flex-col items-center w-[80%] mt-[150px] mx-auto ">
+    <section id="About" className="info-section  flex flex-col items-center w-[80%] mt-10 md:mt-[150px] mx-auto ">
       <h1 className="section-title autoDisplay text-3xl sm:text-4xl font-bold mb-16 text-center">
         Hello, There 👋
       </h1>
