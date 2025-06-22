@@ -43,12 +43,16 @@ const Info: React.FC = () => {
                 <video
                   poster="/images/glob2.png"
                   preload="auto"
-                  className=" w-full mx-auto sm:w-[80%] h-[50%]  xl:h-[50%] mt-10 mix-blend-lighten "
-                  src={card.video}
                   autoPlay
                   loop
                   muted
-                />
+                  playsInline
+                  className="w-full mx-auto sm:w-[80%] h-[50%] xl:h-[50%] mt-10 mix-blend-lighten pointer-events-none"
+                >
+                  <source src={card.video} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+
               )}
 
               <h1

@@ -28,7 +28,7 @@ const MyProjects: React.FC = () => {
   return (
     <section id="Projects" className="my-projects relative flex flex-col mx-auto items-center w-full sm:w-[80%] mt-40 lg:mt-60 gap-[60px] px-4 sm:px-0">
       <h1 className="section-title autoDisplay text-3xl sm:text-4xl font-bold mb-16 text-center">
-               
+
         My Projects 👨‍💻
       </h1>
 
@@ -45,14 +45,17 @@ const MyProjects: React.FC = () => {
               }}
               poster={card.img}
               preload="auto"
-              src={card.video}
               loop
               muted
               playsInline
               onMouseEnter={() => handleVideoHover(index, "enter")}
               onMouseLeave={() => handleVideoHover(index, "leave")}
-              className="object-cover w-full h-full rounded-[20px] "
-            />
+              className="object-cover w-full h-full rounded-[20px]"
+            >
+              <source src={card.video} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+
             <div
               ref={(el) => {
                 hoverSignRefs.current[index] = el!;

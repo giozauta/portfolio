@@ -6,13 +6,16 @@ const BlackHole: React.FC = () => {
       <video
         poster="/images/blackhole.png"
         preload="auto"
-        className="w-full h-46 sm:h-54 md:h-59 lg:h-72 "
         loop
         autoPlay
         muted
         playsInline
-        src="videos/blackhole2.mp4"
-      ></video>
+        className="w-full h-46 sm:h-54 md:h-59 lg:h-72 pointer-events-none"
+      >
+        <source src="/videos/blackhole2.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
     </div>
   );
 };
